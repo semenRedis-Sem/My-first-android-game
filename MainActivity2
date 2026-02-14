@@ -1,0 +1,1220 @@
+public class MainActivity2 extends AppCompatActivity {
+    int randomNum = 0;
+    int a = 0;
+    int b = 0;
+    public void back(View view){
+        randomNum = 0;
+        a = 0;
+        b = 0;
+        finish();
+    }
+    private void novayagames(){
+        randomNum = 0;
+        a = 0;
+        b = 0;
+        MaterialButton button1 = (MaterialButton) findViewById(R.id.bttn1);
+        MaterialButton button2 = (MaterialButton) findViewById(R.id.bttn2);
+        MaterialButton button3 = (MaterialButton) findViewById(R.id.bttn3);
+        MaterialButton button4 = (MaterialButton) findViewById(R.id.bttn4);
+        MaterialButton button5 = (MaterialButton) findViewById(R.id.bttn5);
+        MaterialButton button6 = (MaterialButton) findViewById(R.id.bttn6);
+        MaterialButton button7 = (MaterialButton) findViewById(R.id.bttn7);
+        MaterialButton button8 = (MaterialButton) findViewById(R.id.bttn8);
+        MaterialButton button9 = (MaterialButton) findViewById(R.id.bttn9);
+        button1.setText("");
+        button2.setText("");
+        button3.setText("");
+        button4.setText("");
+        button5.setText("");
+        button6.setText("");
+        button7.setText("");
+        button8.setText("");
+        button9.setText("");
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("Начало", 0);
+        if(start == 1){
+            Toast.makeText(MainActivity2.this, "Начинайте игру!", Toast.LENGTH_SHORT).show();
+        } else {
+            robot();
+        }
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main2);
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bexhevy));
+
+        new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView()).hide(WindowInsetsCompat.Type.statusBars());
+
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("Начало", 0);
+
+        if(start == 1){
+            Toast.makeText(MainActivity2.this, "Начинайте игру!", Toast.LENGTH_SHORT).show();
+        } else {
+            robot();
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+
+    private void robot (){
+        if(b != 1){
+            randomNum = ThreadLocalRandom.current().nextInt(1, 10);
+            vabor();
+        }
+    }
+
+    private void vabor() {
+        if (b == 1) {
+            return;
+        } else {
+            MaterialButton button1 = (MaterialButton) findViewById(R.id.bttn1);
+            MaterialButton button2 = (MaterialButton) findViewById(R.id.bttn2);
+            MaterialButton button3 = (MaterialButton) findViewById(R.id.bttn3);
+            MaterialButton button4 = (MaterialButton) findViewById(R.id.bttn4);
+            MaterialButton button5 = (MaterialButton) findViewById(R.id.bttn5);
+            MaterialButton button6 = (MaterialButton) findViewById(R.id.bttn6);
+            MaterialButton button7 = (MaterialButton) findViewById(R.id.bttn7);
+            MaterialButton button8 = (MaterialButton) findViewById(R.id.bttn8);
+            MaterialButton button9 = (MaterialButton) findViewById(R.id.bttn9);
+            SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+            int start = ddwq1.getInt("1and2", 0);
+            a = 1;
+            if (randomNum == 1) {
+                String btnText1 = button1.getText().toString();
+                if (btnText1.equals("X") || btnText1.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button1.setText("0");
+                        proverka();
+                    } else {
+                        button1.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 2) {
+                String btnText2 = button2.getText().toString();
+                if (btnText2.equals("X") || btnText2.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button2.setText("0");
+                        proverka();
+                    } else {
+                        button2.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 3) {
+                String btnText3 = button3.getText().toString();
+                if (btnText3.equals("X") || btnText3.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button3.setText("0");
+                        proverka();
+                    } else {
+                        button3.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 4) {
+                String btnText4 = button4.getText().toString();
+                if (btnText4.equals("X") || btnText4.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button4.setText("0");
+                        proverka();
+                    } else {
+                        button4.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 5) {
+                String btnText5 = button5.getText().toString();
+                if (btnText5.equals("X") || btnText5.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button5.setText("0");
+                        proverka();
+                    } else {
+                        button5.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 6) {
+                String btnText6 = button6.getText().toString();
+                if (btnText6.equals("X") || btnText6.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button6.setText("0");
+                        proverka();
+                    } else {
+                        button6.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 7) {
+                String btnText7 = button7.getText().toString();
+                if (btnText7.equals("X") || btnText7.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button7.setText("0");
+                        proverka();
+                    } else {
+                        button7.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 8) {
+                String btnText8 = button8.getText().toString();
+                if (btnText8.equals("X") || btnText8.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button8.setText("0");
+                        proverka();
+                    } else {
+                        button8.setText("X");
+                        proverka();
+                    }
+                }
+            } else if (randomNum == 9) {
+                String btnText9 = button9.getText().toString();
+                if (btnText9.equals("X") || btnText9.equals("0")) {
+                    robot();
+                } else {
+                    if (start == 1) {
+                        button9.setText("0");
+                        proverka();
+                    } else {
+                        button9.setText("X");
+                        proverka();
+                    }
+                }
+            }
+        }
+    }
+
+    private void proverka(){
+        MaterialButton button1 = (MaterialButton) findViewById(R.id.bttn1);
+        MaterialButton button2 = (MaterialButton) findViewById(R.id.bttn2);
+        MaterialButton button3 = (MaterialButton) findViewById(R.id.bttn3);
+        MaterialButton button4 = (MaterialButton) findViewById(R.id.bttn4);
+        MaterialButton button5 = (MaterialButton) findViewById(R.id.bttn5);
+        MaterialButton button6 = (MaterialButton) findViewById(R.id.bttn6);
+        MaterialButton button7 = (MaterialButton) findViewById(R.id.bttn7);
+        MaterialButton button8 = (MaterialButton) findViewById(R.id.bttn8);
+        MaterialButton button9 = (MaterialButton) findViewById(R.id.bttn9);
+
+        String txt1 = button1.getText().toString();
+        String txt2 = button2.getText().toString();
+        String txt3 = button3.getText().toString();
+        String txt4 = button4.getText().toString();
+        String txt5 = button5.getText().toString();
+        String txt6 = button6.getText().toString();
+        String txt7 = button7.getText().toString();
+        String txt8 = button8.getText().toString();
+        String txt9 = button9.getText().toString();
+
+
+        if (a == 1) {
+            if (txt1.equals("X") && txt2.equals("X") && txt3.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt2.equals("0") && txt3.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt4.equals("X") && txt5.equals("X") && txt6.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt4.equals("0") && txt5.equals("0") && txt6.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt7.equals("X") && txt8.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt7.equals("0") && txt8.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("X") && txt4.equals("X") && txt7.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt4.equals("0") && txt7.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt2.equals("X") && txt5.equals("X") && txt8.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt2.equals("0") && txt5.equals("0") && txt8.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("X") && txt6.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("0") && txt6.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("X") && txt5.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt5.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("X") && txt5.equals("X") && txt7.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("0") && txt5.equals("0") && txt7.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы проиграли!")
+                        .setMessage("ТУПОЙ бот смог обыграть Вас!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (!txt1.isEmpty() && !txt2.isEmpty() && !txt3.isEmpty() && !txt4.isEmpty() && !txt5.isEmpty() && !txt6.isEmpty() && !txt7.isEmpty() && !txt8.isEmpty() && !txt9.isEmpty()){
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Ничья")
+                        .setMessage("Вы и бот остались в пролёте :) ")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            }
+        }
+        if (a == 2) {
+            if (txt1.equals("X") && txt2.equals("X") && txt3.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt2.equals("0") && txt3.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt4.equals("X") && txt5.equals("X") && txt6.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt4.equals("0") && txt5.equals("0") && txt6.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt7.equals("X") && txt8.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt7.equals("0") && txt8.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("X") && txt4.equals("X") && txt7.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt4.equals("0") && txt7.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt2.equals("X") && txt5.equals("X") && txt8.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt2.equals("0") && txt5.equals("0") && txt8.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("X") && txt6.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("0") && txt6.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("X") && txt5.equals("X") && txt9.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt1.equals("0") && txt5.equals("0") && txt9.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("X") && txt5.equals("X") && txt7.equals("X")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (txt3.equals("0") && txt5.equals("0") && txt7.equals("0")) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Вы выйграли!")
+                        .setMessage("Вы смогли победить тупого бота!")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                dialog.show();
+                b = 1;
+                return;
+            } else if (!txt1.isEmpty() && !txt2.isEmpty() && !txt3.isEmpty() && !txt4.isEmpty() && !txt5.isEmpty() && !txt6.isEmpty() && !txt7.isEmpty() && !txt8.isEmpty() && !txt9.isEmpty()) {
+                android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
+                        .setTitle("Ничья")
+                        .setMessage("Вы и бот остались в пролёте :) ")
+                        .setCancelable(false)
+                        .setPositiveButton("Новая игра", (d, which) -> {
+                            novayagames();
+                        })
+                        .setNegativeButton("Выйти", (d, which) -> {
+                            randomNum = 0;
+                            a = 0;
+                            b = 0;
+                            finish();
+                        })
+                        .create();
+                dialog.setOnShowListener(dialogInterface -> {
+                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                    dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
+                            .setTextColor(getResources().getColor(R.color.sini));
+                });
+                b = 1;
+                return;
+            }
+            if(b != 1){
+                robot();
+            }
+        }
+    }
+
+    public void btn1(View view){
+        MaterialButton button1 = (MaterialButton) findViewById(R.id.bttn1);
+        String txt1 = button1.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button1.setText("X");
+            } else {
+                button1.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn2(View view){
+        MaterialButton button2 = (MaterialButton) findViewById(R.id.bttn2);
+        String txt1 = button2.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button2.setText("X");
+            } else {
+                button2.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn3(View view){
+        MaterialButton button3 = (MaterialButton) findViewById(R.id.bttn3);
+        String txt1 = button3.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button3.setText("X");
+            } else {
+                button3.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void btn4(View view){
+        MaterialButton button4 = (MaterialButton) findViewById(R.id.bttn4);
+        String txt1 = button4.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button4.setText("X");
+            } else {
+                button4.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn5(View view){
+        MaterialButton button5 = (MaterialButton) findViewById(R.id.bttn5);
+        String txt1 = button5.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button5.setText("X");
+            } else {
+                button5.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn6(View view){
+        MaterialButton button6 = (MaterialButton) findViewById(R.id.bttn6);
+        String txt1 = button6.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button6.setText("X");
+            } else {
+                button6.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn7(View view){
+        MaterialButton button7 = (MaterialButton) findViewById(R.id.bttn7);
+        String txt1 = button7.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button7.setText("X");
+            } else {
+                button7.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn8(View view){
+        MaterialButton button8 = (MaterialButton) findViewById(R.id.bttn8);
+        String txt1 = button8.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button8.setText("X");
+            } else {
+                button8.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void btn9(View view){
+        MaterialButton button9 = (MaterialButton) findViewById(R.id.bttn9);
+        String txt1 = button9.getText().toString();
+        SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int start = ddwq1.getInt("1and2", 0);
+        if(txt1.isEmpty()){
+            if (start == 1){
+                button9.setText("X");
+            } else {
+                button9.setText("0");
+            }
+            a = 2;
+            proverka();
+        } else {
+            Toast.makeText(MainActivity2.this, "Тут уже занято!", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
