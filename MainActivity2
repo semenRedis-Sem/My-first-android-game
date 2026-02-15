@@ -1,3 +1,20 @@
+package semyon.android_studio.crestiki_noliki;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+import com.google.android.material.button.MaterialButton;
+import java.util.concurrent.ThreadLocalRandom;
 public class MainActivity2 extends AppCompatActivity {
     int randomNum = 0;
     int a = 0;
@@ -37,25 +54,44 @@ public class MainActivity2 extends AppCompatActivity {
         } else {
             robot();
         }
+        SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int num = prefs.getInt("Победы", 0);
+        if (num != 0) {
+            TextView tt = findViewById(R.id.wins);
+            tt.setText(String.valueOf(num));
+        }
+        int ral = prefs.getInt("Проигрыши", 0);
+        if (ral != 0) {
+            TextView rr = findViewById(R.id.proigral);
+            rr.setText(String.valueOf(ral));
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
-
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bexhevy));
-
         new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView()).hide(WindowInsetsCompat.Type.statusBars());
-
         SharedPreferences ddwq1 = getSharedPreferences("Выбор", MODE_PRIVATE);
         int start = ddwq1.getInt("Начало", 0);
-
         if(start == 1){
             Toast.makeText(MainActivity2.this, "Начинайте игру!", Toast.LENGTH_SHORT).show();
         } else {
             robot();
+        }
+
+        SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+        int num = prefs.getInt("Победы", 0);
+        if (num != 0) {
+            TextView tt = findViewById(R.id.wins);
+            tt.setText(String.valueOf(num));
+        }
+        int ral = prefs.getInt("Проигрыши", 0);
+        if (ral != 0) {
+            TextView rr = findViewById(R.id.proigral);
+            rr.setText(String.valueOf(ral));
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -254,6 +290,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt2.equals("0") && txt3.equals("0")) {
@@ -278,6 +321,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt4.equals("X") && txt5.equals("X") && txt6.equals("X")) {
@@ -302,6 +352,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt4.equals("0") && txt5.equals("0") && txt6.equals("0")) {
@@ -326,6 +383,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt7.equals("X") && txt8.equals("X") && txt9.equals("X")) {
@@ -350,6 +414,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt7.equals("0") && txt8.equals("0") && txt9.equals("0")) {
@@ -374,6 +445,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt1.equals("X") && txt4.equals("X") && txt7.equals("X")) {
@@ -398,6 +476,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt4.equals("0") && txt7.equals("0")) {
@@ -422,6 +507,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt2.equals("X") && txt5.equals("X") && txt8.equals("X")) {
@@ -446,6 +538,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt2.equals("0") && txt5.equals("0") && txt8.equals("0")) {
@@ -470,6 +569,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt3.equals("X") && txt6.equals("X") && txt9.equals("X")) {
@@ -494,6 +600,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt3.equals("0") && txt6.equals("0") && txt9.equals("0")) {
@@ -518,6 +631,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt1.equals("X") && txt5.equals("X") && txt9.equals("X")) {
@@ -542,6 +662,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt5.equals("0") && txt9.equals("0")) {
@@ -566,6 +693,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt3.equals("X") && txt5.equals("X") && txt7.equals("X")) {
@@ -590,6 +724,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (txt3.equals("0") && txt5.equals("0") && txt7.equals("0")) {
@@ -614,6 +755,13 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Проигрыши", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Проигрыши", num + 1);
+                editor.apply();
+
                 b = 1;
                 return;
             } else if (!txt1.isEmpty() && !txt2.isEmpty() && !txt3.isEmpty() && !txt4.isEmpty() && !txt5.isEmpty() && !txt6.isEmpty() && !txt7.isEmpty() && !txt8.isEmpty() && !txt9.isEmpty()){
@@ -665,6 +813,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt2.equals("0") && txt3.equals("0")) {
@@ -689,6 +842,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt4.equals("X") && txt5.equals("X") && txt6.equals("X")) {
@@ -713,6 +871,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt4.equals("0") && txt5.equals("0") && txt6.equals("0")) {
@@ -737,6 +900,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt7.equals("X") && txt8.equals("X") && txt9.equals("X")) {
@@ -761,6 +929,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt7.equals("0") && txt8.equals("0") && txt9.equals("0")) {
@@ -785,6 +958,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt1.equals("X") && txt4.equals("X") && txt7.equals("X")) {
@@ -809,6 +987,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt4.equals("0") && txt7.equals("0")) {
@@ -833,6 +1016,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt2.equals("X") && txt5.equals("X") && txt8.equals("X")) {
@@ -857,6 +1045,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt2.equals("0") && txt5.equals("0") && txt8.equals("0")) {
@@ -881,6 +1074,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt3.equals("X") && txt6.equals("X") && txt9.equals("X")) {
@@ -905,6 +1103,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt3.equals("0") && txt6.equals("0") && txt9.equals("0")) {
@@ -929,6 +1132,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt1.equals("X") && txt5.equals("X") && txt9.equals("X")) {
@@ -953,6 +1161,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt1.equals("0") && txt5.equals("0") && txt9.equals("0")) {
@@ -977,6 +1190,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt3.equals("X") && txt5.equals("X") && txt7.equals("X")) {
@@ -1001,6 +1219,11 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
             } else if (txt3.equals("0") && txt5.equals("0") && txt7.equals("0")) {
@@ -1025,9 +1248,14 @@ public class MainActivity2 extends AppCompatActivity {
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
                 dialog.show();
+                SharedPreferences prefs = getSharedPreferences("Выбор", MODE_PRIVATE);
+                int num = prefs.getInt("Победы", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("Победы", num + 1);
+                editor.apply();
                 b = 1;
                 return;
-            } else if (!txt1.isEmpty() && !txt2.isEmpty() && !txt3.isEmpty() && !txt4.isEmpty() && !txt5.isEmpty() && !txt6.isEmpty() && !txt7.isEmpty() && !txt8.isEmpty() && !txt9.isEmpty()) {
+            } else if (!txt1.isEmpty() && !txt2.isEmpty() && !txt3.isEmpty() && !txt4.isEmpty() && !txt5.isEmpty() && !txt6.isEmpty() && !txt7.isEmpty() && !txt8.isEmpty() && !txt9.isEmpty()){
                 android.app.AlertDialog dialog = new android.app.AlertDialog.Builder(this, R.style.WhiteTextAlertDialog)
                         .setTitle("Ничья")
                         .setMessage("Вы и бот остались в пролёте :) ")
@@ -1048,6 +1276,7 @@ public class MainActivity2 extends AppCompatActivity {
                     dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE)
                             .setTextColor(getResources().getColor(R.color.sini));
                 });
+                dialog.show();
                 b = 1;
                 return;
             }
